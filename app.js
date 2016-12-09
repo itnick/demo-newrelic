@@ -12,17 +12,17 @@ var bodyParser = require('body-parser');
 var app = express();
 
 // connect to mongodb
-mongoose.connect('mongodb://test:test@ds025772.mlab.com:25772/aftershiptest');
+mongoose.connect('mongodb://primary:27017/test,mongodb://secondary1:27017/test,mongodb://secondary2:27017/test');
 
 // load a simple model
-mongoose.model('MyCar', { name: String });
+mongoose.model('Test', { name: String });
 
 // connect to redis
-app.redis = new Redis({
-	host: 'pub-redis-18562.us-east-1-4.3.ec2.garantiadata.com',
-	port: '18562',
-	db: 0
-});
+// app.redis = new Redis({
+// 	host: 'pub-redis-18562.us-east-1-4.3.ec2.garantiadata.com',
+// 	port: '18562',
+// 	db: 0
+// });
 
 // load the conroller
 var index = require('./controller/index');
@@ -54,7 +54,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', index);
 app.use('/ping', ping);
 app.use('/slow-res', slow_res);
-app.use('/redis', redis);
+// app.use('/redis', redis);
 app.use('/mongodb', mongodb);
 app.use('/mix', mix);
 

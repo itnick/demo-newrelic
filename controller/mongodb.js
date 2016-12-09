@@ -4,7 +4,7 @@ var router = express.Router();
 var moment = require('moment');
 
 var mongoose = require('mongoose');
-var MyCar = mongoose.model('MyCar');
+var MyCar = mongoose.model('Test');
 
 
 router.get('/', function (req, res) {
