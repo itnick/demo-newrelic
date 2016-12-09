@@ -3,7 +3,7 @@ var moment = require('moment');
 var router = express.Router();
 var request = require('request');
 var mongoose = require('mongoose');
-var MyCar = mongoose.model('MyCar');
+var MyCar = mongoose.model('Test');
 
 router.get('/', function (req, res) {
 	var req_start = moment().valueOf();
