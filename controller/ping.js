@@ -7,7 +7,7 @@ var rps = 0;
 
 var request = require('request');
 var mongoose = require('mongoose');
-var MyCar = mongoose.model('MyCar');
+var MyCar = mongoose.model('Test');
 
 setInterval(function () {
 	if (rps_start === 0) {
